@@ -1,22 +1,21 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.ComponentModel.Design;
+using System.Globalization;
 using System.Reflection;
 
 public class Example
 {
-    private static int userYear;
-    private static int currentYear;
-    private static int ageLimit = 18;
     public static void Main()
     {
-        Console.WriteLine("Hello, please, input your year of birth");
-        int userYear = Int32.Parse(Console.ReadLine()); 
-        int currentYear = Int32.Parse(DateTime.Now.Year.ToString());
-        int userAge = currentYear - userYear;
+        var ageLimit = 18;
+        Console.WriteLine("""Hello, please, input your date of birth in the format DD/MM/YYYY""");
+        string userInputDate = Console.ReadLine();
+        DateTime userInputDateParsed = DateTime.Parse(userInputDate, CultureInfo.CreateSpecificCulture("en-GB"));
+        var currentYear = int.Parse(DateTime.Now.Year.ToString());
+        var userAge = currentYear - userInputDateParsed.Year;
 
         if (userAge >= ageLimit)
-
         {
             Console.WriteLine("Please, input your first name");
             string userFirstName = Console.ReadLine();
@@ -27,18 +26,20 @@ public class Example
             Console.WriteLine("Please, input your password");
             string userPassword = Console.ReadLine();
 
-            Console.WriteLine("Summary");
+            Console.WriteLine("\n" + "Summary" + "\n");
             Console.WriteLine("you have " + userAge + " years");
+            Console.WriteLine("you birthday is " + userInputDateParsed);
             Console.WriteLine("First Name: " + userFirstName);
             Console.WriteLine("Last Name: " + userLastName);
-            Console.WriteLine("Password: " + userPassword);
+            Console.WriteLine("Password: " + userPassword + "\n");
+            Console.WriteLine("Saved value for user input date is variable userInputDateParsed. Equals: " + userInputDateParsed + "\n");
             Console.WriteLine("Thank you for registration. Have a nice, whatever you want :)");
 
         }
 
         else
         {
-            Console.WriteLine("unfortunately we cannot register users under 18 years");
+            Console.WriteLine("Unfortunately we cannot register users under 18 years");
         }
 
         Console.In.ReadLine();
