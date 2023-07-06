@@ -1,7 +1,11 @@
-﻿public class Example
+﻿using ConsoleAppLoginTest;
+using System.Drawing;
+
+public class UsersMaintenance
 {
     public static void Main()
     {
+
         var ageLimit = 18;
 
         Console.WriteLine("""Hello, please, input your date of birth in the format DD/MM/YYYY""");
@@ -51,5 +55,11 @@
         }
 
         Console.In.ReadLine();
+        Console.Write(User.usersArr[0, 0]);
+        Console.Write("{0}\t", User.usersArr[0, 0]);
+        Console.Write("{0}\t", usersArr[1, 0]);
+        Console.Write("{0}\t", usersArr[2, 0]);
+        Console.Write("{0}\t", usersArr[3, 0]);
+
     }
 }
