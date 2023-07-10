@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using ConsoleAppLoginTest;
+using System.Drawing;
 
 namespace ConsoleAppLoginTest
 {
@@ -12,32 +16,11 @@ namespace ConsoleAppLoginTest
 
         static void Main(string[] args, int usersNumber)
         {
-            //int[] myArr = { 4, 5, -183, 12, 34, 0, 2, -13 };
-
-            //Console.WriteLine("Исходный массив чисел: ");
-            //foreach (int x in myArr)
-            //    Console.Write("\t{0}", x);
-
-            //// Реализуем сортировку массива
-            //Console.WriteLine("\n\nОтсортированный массив:");
-            //Array.Sort(myArr);
-            //foreach (int x in myArr)
-            //    Console.Write("\t{0}", x);
-
-            //// Организуем поиск числа 12
-            //Console.WriteLine("\n\nПоиск числа:");
-            //int search = Array.BinarySearch(myArr, 12);
-            //Console.WriteLine("Число 12 находится на {0} позиции", search + 1);
-
-            //Console.ReadLine();
-
-            string[,] usersArr = new string[3, (usersNumber - 1) ];
-
+            string[,] usersArr = new string[3, (usersNumber - 1)];
             Random ran = new Random();
 
-            //foreach (int i in usersArr.Length)
-                for (int i = 1; i < usersNumber; i++)
-                {
+            for (int i = 1; i < usersNumber; i++)
+            {
                 var symbolsLenthForUserSettings = 8;
                 string randomSymbolsSet = SymbolsRowGenerator.GetRandomSymbolsSet(symbolsLenthForUserSettings);
                 usersArr[0, i] = randomSymbolsSet; //FirstName
@@ -45,19 +28,68 @@ namespace ConsoleAppLoginTest
                 usersArr[1, i] = randomSymbolsSet; //LastName
                 randomSymbolsSet = SymbolsRowGenerator.GetRandomSymbolsSet(symbolsLenthForUserSettings);
                 usersArr[2, i] = randomSymbolsSet; //Password
-                
-                usersArr[3, i] = randomSymbolsSet; //Birthday
-                Console.Write("{0}\t", usersArr[0, i]);
-                Console.Write("{0}\t", usersArr[1, i]);
-                Console.Write("{0}\t", usersArr[2, i]);
-                Console.Write("{0}\t", usersArr[3, i]);
 
-                Console.WriteLine();
             }
+        }
+        class RandomDateTime
+        {
+            DateTime start;
+            Random gen;
+            int range;
+
+            public RandomDateTime()
+            {
+                start = new DateTime(1950, 1, 1);
+                gen = new Random();
+                range = (DateTime.Today - start).Days;
+            }
+            public DateTime Next()
+            {
+                return start.AddDays(gen.Next(range)).AddHours(gen.Next(0, 24)).AddMinutes(gen.Next(0, 60)).AddSeconds(gen.Next(0, 60));
+            }
+        }
+
+        Console.Write("{0}\t", usersArr[0, 0]);
+                Console.Write("{0}\t", usersArr[1, 0]);
+                Console.Write("{0}\t", usersArr[2, 0]);
+                Console.Write("{0}\t", usersArr[3, 0]);
+
+                // sorting start                               
+                Array.Sort(usersArr, 3, 0);
+                Console.WriteLine("After sorting:");
+                PrintKeysAndValues(usersArr);
+        // sorting end
+    }
+
+    public static void PrintKeysAndValues(string[] usersArr)
+    {
+        for (int i = 0; i < usersArr.Length; i++)
+        {
+            Console.Write("{0}\t", usersArr[0, i]);
+            Console.Write("{0}\t", usersArr[1, i]);
+            Console.Write("{0}\t", usersArr[2, i]);
+            Console.Write("{0}\t", usersArr[3, i]);
+        }
+        Console.WriteLine();
+    }
+    public void userSearchInArray()
+    {
+        Console.WriteLine("""Please, input User Name for Search""");
+        string userNameForSearch = Console.ReadLine();
+
+        for (int i = 0; i < usersArr.Length; i++)
+        {
+            if (userArr[0, i] == userNameForSearch)
+            {
+                Console.WriteLine(string.Format("User Name '{0}' '{1}' is in the users collection", userArr[0, i], userArr[1, i]);
+            }
+
         }
     }
 
- 
+
+
+
     public class SymbolsRowGenerator
     {
         public static string GetRandomSymbolsSet(int length)

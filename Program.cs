@@ -46,7 +46,6 @@ public class UsersMaintenance
             Console.WriteLine("Password: " + userPassword + "\n");
             Console.WriteLine("Saved value for user input date is variable DateTime userBirthday. Equals: " + userBirthday + "\n");
             Console.WriteLine("Thank you for registration. Have a nice, whatever you want :)");
-
         }
 
         else
