@@ -50,14 +50,14 @@ namespace ConsoleAppLoginTest
         }
 
         Console.Write("{0}\t", usersArr[0, 0]);
-                Console.Write("{0}\t", usersArr[1, 0]);
-                Console.Write("{0}\t", usersArr[2, 0]);
-                Console.Write("{0}\t", usersArr[3, 0]);
+        Console.Write("{0}\t", usersArr[1, 0]);
+        Console.Write("{0}\t", usersArr[2, 0]);
+        Console.Write("{0}\t", usersArr[3, 0]);
 
-                // sorting start                               
-                Array.Sort(usersArr, 3, 0);
-                Console.WriteLine("After sorting:");
-                PrintKeysAndValues(usersArr);
+        // sorting start                               
+        Array.Sort(usersArr, 3, 0);
+        Console.WriteLine("After sorting:");
+        PrintKeysAndValues(usersArr);
         // sorting end
     }
 
@@ -79,7 +79,7 @@ namespace ConsoleAppLoginTest
 
         for (int i = 0; i < usersArr.Length; i++)
         {
-            if (userArr[0, i] == userNameForSearch)
+            if (usersArr[0, i] == userNameForSearch)
             {
                 Console.WriteLine(string.Format("User Name '{0}' '{1}' is in the users collection", userArr[0, i], userArr[1, i]);
             }
