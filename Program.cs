@@ -1,13 +1,27 @@
-﻿static void Main()
-    {
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-       class User
+namespace ConsoleAppLoginTest;
+
+class ProgramAboutUsers
 {
-    private string UserFirstName { get; set; };
-    private string UserLastName { get; set; };
-    private string UserPassword { get; set; };
-    private DateOnly UserBirthday { get; set; }
+    static void Main()
+    {
+        var UsersNumber = new Random().Next(2, 1000);
+        //var list = new List<User>();
+        var list = new List<User>();
+        for (var i = 0; i < UsersNumber; i++) ;
+        {
+            var user = new User();
+            user.GenerateRandomString();
+            list.Add(user);
 
-}
+        }
 
     }
+
+
+}
