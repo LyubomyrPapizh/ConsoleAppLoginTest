@@ -2,10 +2,10 @@
 {
     internal class UsersSet
     {
-        private string UserFirstName { get; set; }
-        private string UserLastName { get; set; }
-        private string UserPassword { get; set; }
-        private DateOnly UserBirthday { get; set; }
+        public string UserFirstName { get; set; }
+        public string UserLastName { get; set; }
+        public string UserPassword { get; set; }
+        public DateOnly UserBirthday { get; set; }
 
         public void GenerateRandomValuesForUser()
         {

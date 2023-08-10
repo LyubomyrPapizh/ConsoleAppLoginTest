@@ -1,4 +1,7 @@
-﻿using OfficeOpenXml.Style;
+﻿using OfficeOpenXml.FormulaParsing.Excel.Functions.Information;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
+using OfficeOpenXml.Style;
+using System;
 
 namespace ConsoleAppLoginTest;
 
@@ -14,17 +17,33 @@ class ProgramAboutUsers
             user.GenerateRandomValuesForUser();
             myUsersList.Add(user);
         }
+        //Console.In.ReadLine();
+
+        for (var i = 0; i < UsersNumber; i++)
+        {            
+            Console.WriteLine("\n" + "User number " + i);
+            Console.WriteLine(value: $"First name is   {myUsersList[i].UserFirstName}.");
+            Console.WriteLine(value: $"Last name is    {myUsersList[i].UserLastName}.");
+            Console.WriteLine(value: $"Password is     {myUsersList[i].UserPassword}.");
+            Console.WriteLine(value: $"UserBirthday is {myUsersList[i].UserBirthday}.");
+        }
+
         Console.In.ReadLine();
 
-        Console.WriteLine($"My name is {myUsersList[0]}.");
-        Console.WriteLine($"My name is {myUsersList[1]}.");
-        Console.WriteLine($"My name is {myUsersList[2]}.");
+        //List<Order> SortedList = myUsersList.OrderBy(UserFirstName).ToList();
+        //myUsersList.Sort(myUsersList(Delegate).UserFirstName);
+             
 
-        Console.In.ReadLine();
-                
-        myUsersList.Sort();
 
-        foreach (var item in myUsersList) Console.WriteLine(myUsersList);
+
+        for (var i = 0; i < UsersNumber; i++)
+        {
+            Console.WriteLine("\n" + "User number " + i);
+            Console.WriteLine(value: $"First name is   {myUsersList[i].UserFirstName}.");
+            Console.WriteLine(value: $"Last name is    {myUsersList[i].UserLastName}.");
+            Console.WriteLine(value: $"Password is     {myUsersList[i].UserPassword}.");
+            Console.WriteLine(value: $"UserBirthday is {myUsersList[i].UserBirthday}.");
+        }
 
         Console.In.ReadLine();
     }
