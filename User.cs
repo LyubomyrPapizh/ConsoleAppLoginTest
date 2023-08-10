@@ -17,35 +17,14 @@ namespace ConsoleAppLoginTest
         private string UserPassword { get; set; }
         private DateOnly UserBirthday { get; set; }
 
-        public void GenerateRandomValues()
+        public void GenerateRandomValuesForUser()
         {
             var rnd = new Random();
             var passwordLengh = 12;
             UserFirstName = GenerateRandomString(rnd.Next(4, 12));
             UserLastName = GenerateRandomString(rnd.Next(4, 12));
             UserPassword = GenerateRandomString(passwordLengh);
-            UserBirthday = GenerateRandomDate();
-            //UserBirthday -= 
-
-                
-            //Rand.Next(1923, 2005);
-            //var today = DateOnly.FromDateTime(DateTime.Now);
-            //var theDate = new DateOnly(rnd.Next(1923, 2005), rnd.Next(1, 12), rnd.Next(1, 28));
-            //var theDate = new DateOnly(2015, 10, 21);
-        }
-
-        public IEnumerable<DateTime> GenerateRandomDate()
-        {
-            var rnd = new Random(Guid.NewGuid().GetHashCode());
-
-            
-                var year = rnd.Next(1, 10000);
-                var month = rnd.Next(1, 13);
-                var days = rnd.Next(1, DateTime.DaysInMonth(year, month) + 1);
-
-                yield return new DateTime(year, month, days,
-                    rnd.Next(0, 24), rnd.Next(0, 60), rnd.Next(0, 60), rnd.Next(0, 1000));
-            
+            UserBirthday = DateOnly.FromDayNumber(rnd.Next(712845, 731825));
         }
 
         public string GenerateRandomString(int lenthForRandomString)
@@ -67,6 +46,5 @@ namespace ConsoleAppLoginTest
             }
             return randomString;
         }
-       
     }
 }

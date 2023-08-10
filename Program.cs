@@ -11,16 +11,15 @@ class ProgramAboutUsers
     static void Main()
     {
         var UsersNumber = new Random().Next(2, 1000);
-        //var list = new List<User>();
         var list = new List<User>();
-        for (var i = 0; i < UsersNumber; i++) ;
+        for (var i = 0; i < UsersNumber; i++)
         {
             var user = new User();
-            user.GenerateRandomString();
-            list.Add(user);
-
+            user.GenerateRandomValuesForUser();
+            list.Add(user); 
         }
-
+        Console.In.ReadLine();
+        
     }
 
 
