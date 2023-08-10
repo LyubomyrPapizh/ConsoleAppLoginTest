@@ -1,16 +1,6 @@
-﻿using OfficeOpenXml.FormulaParsing.Excel.Functions.DateTime;
-using OfficeOpenXml.FormulaParsing.Excel.Functions.Information;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleAppLoginTest
+﻿namespace ConsoleAppLoginTest
 {
-    internal class User
+    internal class UsersSet
     {
         private string UserFirstName { get; set; }
         private string UserLastName { get; set; }
